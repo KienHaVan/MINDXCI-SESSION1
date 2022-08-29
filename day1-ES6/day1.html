@@ -13,6 +13,7 @@
         />
         <link rel="stylesheet" href="./app.css" />
     </head>
+
     <body>
         <div class="app">
             <form class="app-up">
@@ -36,9 +37,10 @@
                     placeholder="Tìm Kiếm"
                     name="search"
                     id="searchInput"
+                    onchange="handleChange(event)"
                 />
                 <button id="searchBtn">TÌM</button>
-                <button onclick="handleDelete" id="deleteBtn">XÓA TRÙNG</button>
+                <button id="deleteBtn">XÓA TRÙNG</button>
             </div>
             <div class="app-content">
                 <!-- <div class="app-item">

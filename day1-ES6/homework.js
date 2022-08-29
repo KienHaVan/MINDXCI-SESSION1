@@ -31,8 +31,8 @@ const nameInput = document.querySelector("#nameInput");
 const phoneInput = document.querySelector("#phoneInput");
 const searchInput = document.querySelector("#searchInput");
 const searchBtn = document.querySelector("#searchBtn");
+const deleteBtn = document.querySelector("#deleteBtn");
 const appContent = document.querySelector(".app-content");
-console.log(form);
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -47,6 +47,10 @@ form.addEventListener("submit", (e) => {
     showData(name, phone);
 });
 
+const handleChange = (event) => {
+    console.log(event.target);
+};
+
 searchBtn.addEventListener("click", () => {
     const searchInfo = searchInput.value;
     const data = JSON.parse(localStorage.getItem("data"));
@@ -59,6 +63,24 @@ searchBtn.addEventListener("click", () => {
         });
     } else loadData();
 });
+
+deleteBtn.addEventListener("click", () => {
+    const output = [];
+    const names = [];
+    const data = JSON.parse(localStorage.getItem("data"));
+    console.log(data);
+    appContent.innerHTML = "";
+    data.map((item) => {
+        if (!names.includes(item.name)) {
+            names.push(item.name);
+            output.push(item);
+            showData(item.name, item.phone);
+        }
+    });
+    localStorage.setItem("data", JSON.stringify(output));
+    console.log(output);
+});
+
 const showData = (name, phone) => {
     const htmls = `
     <div class="app-item">
@@ -66,9 +88,7 @@ const showData = (name, phone) => {
         <h2 class="user-phone">${phone}</h2>
     </div>
     `;
-    const divElement = document.createElement("div");
-    divElement.innerHTML = htmls;
-    appContent.appendChild(divElement);
+    appContent.innerHTML += htmls;
 };
 const loadData = () => {
     const initData = JSON.parse(localStorage.getItem("data")) || [];
