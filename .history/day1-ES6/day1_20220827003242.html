@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./app.css" />
+    </head>
+    <body>
+        <div class="app">
+            <form class="app-up">
+                <input
+                    type="text"
+                    placeholder="Tên"
+                    name="name"
+                    class="nameInput"
+                />
+                <input
+                    type="number"
+                    placeholder="Điện Thoại"
+                    name="phone"
+                    class="phoneInput"
+                />
+                <button type="submit">THÊM</button>
+            </form>
+            <div class="app-down">
+                <input
+                    type="text"
+                    placeholder="Tìm Kiếm"
+                    name="search"
+                    id="searchInput"
+                />
+                <button onclick="handleSearch" id="searchBtn">TÌM</button>
+                <button onclick="handleDelete" id="deleteBtn">XÓA TRÙNG</button>
+            </div>
+            <div class="app-content">
+                <div class="app-item">
+                    <h2 class="user-name">Alice</h2>
+                    <h2 class="user-phone">(+24)328-728-623</h2>
+                </div>
+            </div>
+        </div>
+        <!-- <script src="./variable.js"></script>
+        <script src="./arrow-function.js"></script> -->
+        <script src="./homework.js"></script>
+    </body>
+</html>

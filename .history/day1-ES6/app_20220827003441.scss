@@ -1,0 +1,26 @@
+html {
+    font-size: 62.5%;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+.app {
+    width: 80%;
+    margin: 0 auto;
+    &-up {
+        width: 100%;
+        input {
+            padding: 8px 14px;
+            font-size: 20px;
+            line-height: 1.5;
+            border: none;
+            border: 1px solid #eee;
+            :focus {
+                border: #2cccff;
+            }
+        }
+    }
+}
