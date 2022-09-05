@@ -64,21 +64,37 @@ searchBtn.addEventListener("click", () => {
     } else loadData();
 });
 
+// deleteBtn.addEventListener("click", () => {
+//     const output = [];
+//     const names = [];
+//     const data = JSON.parse(localStorage.getItem("data"));
+//     console.log(data);
+//     appContent.innerHTML = "";
+//     data.map((item) => {
+//         if (!names.includes(item.name)) {
+//             names.push(item.name);
+//             output.push(item);
+//             showData(item.name, item.phone);
+//         }
+//     });
+//     localStorage.setItem("data", JSON.stringify(output));
+//     console.log(output);
+// });
 deleteBtn.addEventListener("click", () => {
     const output = [];
-    const names = [];
+    const phones = [];
     const data = JSON.parse(localStorage.getItem("data"));
-    console.log(data);
     appContent.innerHTML = "";
-    data.map((item) => {
-        if (!names.includes(item.name)) {
-            names.push(item.name);
+    const sortOutput = sortData(data);
+    console.log(sortOutput);
+    sortOutput.map((item) => {
+        if (!phones.includes(item.phone)) {
+            phones.push(item.phone);
             output.push(item);
             showData(item.name, item.phone);
         }
     });
     localStorage.setItem("data", JSON.stringify(output));
-    console.log(output);
 });
 
 const showData = (name, phone) => {
@@ -102,5 +118,21 @@ const saveToLocalStorage = (name, phone) => {
     const user = { name, phone };
     data.push(user);
     localStorage.setItem("data", JSON.stringify(data));
+};
+const sortData = (array) => {
+    const names = [];
+    const output = [];
+    array.map((item) => {
+        names.push(item.name);
+    });
+    names.sort();
+    names.map((name) => {
+        array.map((item) => {
+            if (name === item.name) {
+                output.push(item);
+            }
+        });
+    });
+    return output;
 };
 loadData();
